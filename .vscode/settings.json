@@ -1,0 +1,15 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.espIdfPath": "/Users/jozefcipa/esp/v5.4/esp-idf",
+  "idf.pythonInstallPath": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+  "idf.openOcdConfigs": [
+    "board/esp32c3-builtin.cfg"
+  ],
+  "idf.port": "/dev/tty.JBLFlip5",
+  "idf.toolsPath": "/Users/jozefcipa/.espressif",
+  "idf.customExtraVars": {
+    "OPENOCD_SCRIPTS": "/Users/jozefcipa/.espressif/tools/openocd-esp32/v0.12.0-esp32-20241016/openocd-esp32/share/openocd/scripts",
+    "ESP_ROM_ELF_DIR": "/Users/jozefcipa/.espressif/tools/esp-rom-elfs/20241011/",
+    "IDF_TARGET": "esp32c3"
+  }
+}
