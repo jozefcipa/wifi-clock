@@ -13,6 +13,10 @@
     "IDF_TARGET": "esp32c3"
   },
   "files.associations": {
-    "rtc.h": "c"
+    "rtc.h": "c",
+    "freertos.h": "c",
+    "esp_netif_sntp.h": "c",
+    "string.h": "c",
+    "task.h": "c"
   }
 }
