@@ -1,0 +1,21 @@
+dependencies:
+  espressif/network_provisioning:
+    component_hash: 1c0f76f4a37c3f2101ae9735e9da901ef4469a07af9cc075fc8f08fee43281e4
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.1'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.3
+  idf:
+    source:
+      type: idf
+    version: 5.4.0
+direct_dependencies:
+- espressif/network_provisioning
+- idf
+manifest_hash: 440a28af7778f1365d6523052172acced6e7e070904685c5a41b6ecd523433ba
+target: esp32c3
+version: 2.0.0

@@ -17,6 +17,9 @@
     "freertos.h": "c",
     "esp_netif_sntp.h": "c",
     "string.h": "c",
-    "task.h": "c"
+    "task.h": "c",
+    "stdio.h": "c",
+    "scheme_ble.h": "c",
+    "manager.h": "c"
   }
 }
