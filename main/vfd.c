@@ -71,7 +71,7 @@ static void task_scroll_text(void *params) {
       display_text[j] = '\0';
 
       _vfd_write(0, display_text, false);
-      vTaskDelay(pdMS_TO_TICKS(200));
+      vTaskDelay(pdMS_TO_TICKS(150));
     }
   }
 }

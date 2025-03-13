@@ -226,7 +226,7 @@ void wifi_wait_for_conn() {
     xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_EVENT, true, true, portMAX_DELAY);
 }
 
-bool wifi_is_provisioned(void) {
+bool wifi_is_provisioned() {
   bool provisioned = false;
   ESP_ERROR_CHECK(network_prov_mgr_is_wifi_provisioned(&provisioned));
   return provisioned;
@@ -289,9 +289,7 @@ void wifi_reset() {
 
 void wifi_off() {
   ESP_LOGI(TAG, "Turning off WiFi");
-
   wifi_stopped = true;
-
   ESP_ERROR_CHECK(esp_wifi_stop());
   ESP_ERROR_CHECK(esp_wifi_deinit());
 }

@@ -14,6 +14,5 @@ bool wifi_is_provisioned();
 void wifi_init_provisioning();
 void wifi_connect();
 void wifi_reset();
-void wifi_reconnect();
 void wifi_wait_for_conn();
 void wifi_off();
