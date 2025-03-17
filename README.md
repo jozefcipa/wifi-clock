@@ -3,7 +3,7 @@
 
 > *A **simple clock** powered by an **ESP32**, featuring an old-school **VFD display** for a retro aesthetic. This project syncs time via the **internet**, ensuring accurate and reliable timekeeping without manual adjustments.*
 
-- photo
+![clock](./assets//clock.jpg)
 
 ### Wifi provisioning
 Wi-Fi provisioning allows configuring and connecting the device to a Wi-Fi network without hardcoding credentials. This is especially useful for IoT applications, allowing users to set up Wi-Fi easily via a smartphone or another device.<br/>
