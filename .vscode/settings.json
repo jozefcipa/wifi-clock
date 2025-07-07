@@ -5,7 +5,7 @@
   "idf.openOcdConfigs": [
     "board/esp32c3-builtin.cfg"
   ],
-  "idf.port": "/dev/tty.JBLFlip5",
+  "idf.port": "/dev/tty.usbmodem2101",
   "idf.toolsPath": "/Users/jozefcipa/.espressif",
   "idf.customExtraVars": {
     "OPENOCD_SCRIPTS": "/Users/jozefcipa/.espressif/tools/openocd-esp32/v0.12.0-esp32-20241016/openocd-esp32/share/openocd/scripts",

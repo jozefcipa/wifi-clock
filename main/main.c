@@ -18,6 +18,15 @@ void task_time(void *params) {
     datetime_timef(time, sizeof(time));
     vfd_write(0, time);
 
+    // If time is 04:00:00, restart ESP as there is a tiny delay that grows over time
+    // and the time will be off by a few seconds after a few days
+    // This is a little hack but it should do the trick
+    if (strcmp(time, "04:00:00") == 0) {
+      ESP_LOGI("TIME", "Restarting ESP to reset time");
+      esp_restart();
+      return;
+    }
+
     vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
