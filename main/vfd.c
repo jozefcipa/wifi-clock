@@ -19,7 +19,7 @@ static void spi_write(uint8_t w_data) {
   }
 }
 
-static void vfd_config(uint8_t key, uint8_t val) {
+void vfd_config(uint8_t key, uint8_t val) {
   gpio_set_level(PIN_NUM_CS, 0);
   spi_write(key);
   vTaskDelay(pdMS_TO_TICKS(1));
@@ -95,7 +95,7 @@ void vfd_init() {
 
   vfd_init_reset();                         // Init VFD display by sending a RESET signal
   vfd_config(VFD_CONF_DISPLAY_SIZE, 0x07);  // 8 digits
-  vfd_config(VFD_CONF_BRIGHTNESS, 0xFF);    // min 0x01 - max 0xFF
+  vfd_config(VFD_CONF_BRIGHTNESS, 0x19);    // 10% brightness, range (min 0x01 - max 0xFF)
 }
 
 void vfd_write(uint8_t x, const char *str) {

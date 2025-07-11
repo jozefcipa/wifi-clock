@@ -25,3 +25,4 @@ void vfd_init();
 void vfd_write(uint8_t x, const char *str);
 void vfd_write_scroll(const char *str);
 void vfd_cmd(uint8_t cmd);
+void vfd_config(uint8_t key, uint8_t val);

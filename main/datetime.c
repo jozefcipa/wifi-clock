@@ -1,6 +1,7 @@
 #include <string.h>
 #include <sys/time.h>
 #include <time.h>
+
 #include "esp_attr.h"
 #include "esp_event.h"
 #include "esp_log.h"
@@ -10,7 +11,7 @@
 #include "lwip/ip_addr.h"
 #include "time.h"
 
-static const char *TAG = "TIME";
+static const char* TAG = "TIME";
 
 void datetime_init(void) {
   ESP_LOGI(TAG, "Fetching current time over NTP.");
@@ -25,7 +26,7 @@ void datetime_init(void) {
     ESP_LOGI(TAG, "Fetching current time... (%d/%d)", retry, retry_count);
 
     // Add a short delay to avoid running the loop too fast
-    vTaskDelay(1000 / portTICK_PERIOD_MS); // 1-second delay
+    vTaskDelay(1000 / portTICK_PERIOD_MS);  // 1-second delay
   }
 
   esp_netif_sntp_deinit();
@@ -40,4 +41,13 @@ void datetime_timef(char* buff, size_t buff_size) {
   struct tm timeinfo;
   localtime_r(&now, &timeinfo);
   strftime(buff, buff_size, "%H:%M:%S", &timeinfo);
+}
+
+bool datetime_is_night() {
+  time_t now = time(NULL);
+  struct tm* t = localtime(&now);
+  int hour = t->tm_hour;
+
+  // Between 11 PM (23) and 6 AM (6)
+  return (hour >= 23 || hour < 6);
 }

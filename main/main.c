@@ -13,6 +13,8 @@
 #include "wifi.h"
 
 void task_time(void *params) {
+  bool is_high_brightness = false;
+
   while (1) {
     char time[9];  // format 00:00:00 + '\0'
     datetime_timef(time, sizeof(time));
@@ -25,6 +27,15 @@ void task_time(void *params) {
       ESP_LOGI("TIME", "Restarting ESP to reset time");
       esp_restart();
       return;
+    }
+
+    // Dim the display during the night
+    if (datetime_is_night() && is_high_brightness) {
+      is_high_brightness = false;
+      vfd_config(VFD_CONF_BRIGHTNESS, 0x19);  // 10% brightness
+    } else if (!datetime_is_night() && !is_high_brightness) {
+      is_high_brightness = true;
+      vfd_config(VFD_CONF_BRIGHTNESS, 0xFF);  // 100% brightness
     }
 
     vTaskDelay(pdMS_TO_TICKS(1000));
